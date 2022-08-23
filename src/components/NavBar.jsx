@@ -12,6 +12,7 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
+import Carrito from './Carrito';
 
 const pages = ['Productos', 'Contacto', 'Promociones'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
@@ -34,6 +35,8 @@ const NavBar = () => {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
+
+  const cantCarrito = 20;
 
   return (
     <AppBar position="static">
@@ -153,6 +156,7 @@ const NavBar = () => {
               ))}
             </Menu>
           </Box>
+          <Carrito cantCarrito={cantCarrito} />
         </Toolbar>
       </Container>
     </AppBar>
