@@ -13,8 +13,7 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
     },
 }));
 
-export default function Carrito(props) {
-    const {cantCarrito} = props
+export default function Carrito({cantCarrito}) {
 
     return (
         <IconButton aria-label="cart">
