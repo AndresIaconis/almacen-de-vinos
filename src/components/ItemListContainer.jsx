@@ -1,16 +1,18 @@
 import React, {useState, useEffect} from 'react'
-import { CustomFetch } from './CustomFetch'
+// import { CustomFetch } from './CustomFetch'
 import ItemList from './ItemList'
+import { ProductData } from './mock/Api'
 import Productos from './Productos'
+
 
 export default function ItemListContainer({saludo}) {
 
   const [listProducts, setListProducts] = useState([])
   useEffect(() => {
-    CustomFetch(Productos)
-    .then(data=> setListProducts (data))
+    ProductData
+    .then(data=> setListProducts(data))
+    .catch("error")
   },[])
-  console.log(listProducts)
 
   return (
     <>

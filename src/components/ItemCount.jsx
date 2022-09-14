@@ -13,7 +13,6 @@ export const ItemCount = () => {
 
     useEffect(() => {
         return () => {
-        console.log("hola")
     }
     }, [])
     
