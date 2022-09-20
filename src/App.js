@@ -1,37 +1,81 @@
 import './App.css';
-import * as React from 'react'
+import React, { useState, createContext } from 'react';
 import NavBar from './components/NavBar';
-import ItemListContainer from './components/ItemListContainer';
-import Productos from './components/Productos';
-import { ItemCount } from './components/ItemCount';
+import Footer from './components/Footer';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import ItemListContainer from './components/ItemList/ItemListContainer';
+import ItemDetailContainer from './components/ItemDetail/ItemDetailContainer';
+import { CartProvider } from './context/CartContext';
+// import Cart from './components/Cart';
 
-function App() {
-  let producto1 = {id: 1, name: "Malbec", price: 3000};
-  let producto2 = {id: 2, name: "Cabernet Sauvignon", price: 2500};
-  let producto3 = {id: 3, name: "Pinot Noir", price: 2000}
-  
+
+
+export const contexto = createContext();
+
+export default function App() {
+
   return (
-    <div className="App">
-      <div>
+  <CartProvider >
+    <BrowserRouter>
         <NavBar />
-      </div>
+        <Routes>
+          <Route path='/' element={<ItemListContainer />} />
+          <Route path='/detail/:id' element={<ItemDetailContainer />} />
+          <Route path='/category/:category' element={<ItemListContainer/>} />
+          {/* <Route path='/cart' element={<Cart/>}/> */}
+        </Routes>
+        <Footer />
+      </BrowserRouter>
+    </CartProvider>
 
 
-
-      <div>
-        <ItemListContainer />
-      </div>
-
-
-{/* <ItemCount /> */}
-
-      <div>
-        {/* Footer */}
-      </div>
-
-      </div>
-
-    );
+  );
 }
 
-export default App;
+
+
+
+
+
+
+
+
+
+
+
+
+// import './App.css';
+// import React, { useState, createContext } from 'react';
+// import NavBar from './components/NavBar';
+// import Productos from './components/Productos';
+// import { ItemCount } from './components/ItemCount';
+// import { BrowserRouter, Routes, Route } from "react-router-dom";
+// import Footer from './components/Footer';
+// import { CartProvider } from './context/CartContext';
+// import Cart from './components/Cart';
+// import ItemListContainer from './components/ItemListContainerNO';
+// import ItemDetailContainer from './components/ItemDetail/ItemDetailContainer';
+
+
+
+// export const contexto = createContext();
+
+// function App() {
+
+//   return (
+//     <CartProvider >
+//       <BrowserRouter>
+//         <NavBar />
+//         <Routes>
+//           <Route path='/category/all' element={<ItemListContainer />} />
+//           <Route path='/detail/:id' element={<ItemDetailContainer />} />
+//           <Route path='/category/:category' element={<ItemListContainer />} />
+//           <Route path='/cart' element={<Cart />} />
+//         </Routes>
+//         <Footer />
+//       </BrowserRouter>
+//     </CartProvider>
+//   )
+// }
+
+// export default App;

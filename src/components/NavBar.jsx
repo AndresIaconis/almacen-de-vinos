@@ -15,6 +15,7 @@ import Carrito from './Carrito';
 
 const pages = ['Productos', 'Contacto', 'Promociones'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+  const{cartQuantity}= useCart()
 
 const NavBar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -155,7 +156,7 @@ const NavBar = () => {
               ))}
             </Menu>
           </Box>
-          <Carrito cantCarrito={cantCarrito} />
+          <Carrito cantCarrito={cartQuantity()} />
         </Toolbar>
       </Container>
     </AppBar>

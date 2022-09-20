@@ -1,8 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import 'mdb-react-ui-kit/dist/css/mdb.min.css'
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+// import { initializeApp } from "firebase/app";
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
