@@ -15,7 +15,7 @@ export default function ItemDetailContainer() {
       .catch(() => console.log("error"))
       .finally(() => setLoading(false))
   }, [id])
-  console.log(id);
+  console.log(productDetail);
 
   return (
     <>

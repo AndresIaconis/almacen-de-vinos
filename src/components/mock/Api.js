@@ -13,9 +13,6 @@ const ItemData =
         price: 2500,
         category: "cavernet",
         stock: 5,
-        img: "https://ardiaprod.vtexassets.com/arquivos/ids/187254/Vino-Tinto-Kadabra-Cabernet-Sauvignon-750-Ml-_1.jpg"
-    }, {
-
         img: "https://luigiboscaar.vteximg.com.br/arquivos/ids/157139-650-650/Generico_LB_CabernetSauvignon_1_.png"
     }, {
         id: 3,
@@ -23,11 +20,8 @@ const ItemData =
         price: 2000,
         category: "pinot",
         stock: 5,
-        img: "https://ardiaprod.vtexassets.com/arquivos/ids/187254/Vino-Tinto-Kadabra-Cabernet-Sauvignon-750-Ml-_1.jpg"
-    }, {
-
         img: "https://www.espaciovino.com.ar/media/default/0001/57/thumb_56014_default_big.jpeg"
-    }, {
+    },{
         id: 4,
         name: "Bodega Bianchi",
         price: 10000,

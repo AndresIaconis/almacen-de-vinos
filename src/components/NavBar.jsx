@@ -12,10 +12,13 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import Carrito from './Carrito';
+import { useCart } from '../context/CartContext'
+import { Link, useNavigate } from 'react-router-dom';
 
 const pages = ['Productos', 'Contacto', 'Promociones'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
-  const{cartQuantity}= useCart()
+// const{cartQuantity}= useCart()
+// const navigate = useNavigate()
 
 const NavBar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -42,24 +45,24 @@ const NavBar = () => {
     <AppBar position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-
-          <Typography
-            variant="h6"
-            noWrap
-            component="a"
-            href="/"
-            sx={{
-              mr: 2,
-              display: { xs: 'none', md: 'flex' },
-              fontFamily: 'monospace',
-              fontWeight: 700,
-              letterSpacing: '.3rem',
-              color: 'inherit',
-              textDecoration: 'none',
-            }}
-          >
-            ALMACÉN DE VINOS
-          </Typography>
+          <Link to='/' style={{ color: "white" }}>
+            <Typography
+              variant="h6"
+              noWrap
+              component="a"
+              sx={{
+                mr: 2,
+                display: { xs: 'none', md: 'flex' },
+                fontFamily: 'monospace',
+                fontWeight: 700,
+                letterSpacing: '.3rem',
+                color: 'inherit',
+                textDecoration: 'none',
+              }}
+            >
+              ALMACÉN DE VINOS
+            </Typography>
+          </Link>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
@@ -90,11 +93,21 @@ const NavBar = () => {
                 display: { xs: 'block', md: 'none' },
               }}
             >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+              <Link to='category/pinot'>
+                <MenuItem onClick={handleCloseNavMenu}>
+                  <Typography textAlign="center">Pino</Typography>
                 </MenuItem>
-              ))}
+              </Link>
+              <Link to='category/cavernet'>
+                <MenuItem onClick={handleCloseNavMenu}>
+                  <Typography textAlign="center">Cavernet</Typography>
+                </MenuItem>
+              </Link>
+              <Link to='category/malbec'>
+                <MenuItem onClick={handleCloseNavMenu}>
+                  <Typography textAlign="center">Malbec</Typography>
+                </MenuItem>
+              </Link>
             </Menu>
           </Box>
           <Typography
@@ -116,15 +129,24 @@ const NavBar = () => {
             ALMACÉN DE VINOS
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            {pages.map((page) => (
+            <Link to='category/pinot'>
               <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
-              >
-                {page}
+                sx={{ my: 2, color: 'white', display: 'block', fontSize: "12px" }}>
+                Pinot
               </Button>
-            ))}
+            </Link>
+            <Link to='category/cavernet'>
+              <Button
+                sx={{ my: 2, color: 'white', display: 'block', fontSize: "12px" }}>
+                Cavernet
+              </Button>
+            </Link>
+            <Link to='category/malbec'>
+              <Button
+                sx={{ my: 2, color: 'white', display: 'block', fontSize: "12px" }}>
+                Malbec
+              </Button>
+            </Link>
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
@@ -156,7 +178,9 @@ const NavBar = () => {
               ))}
             </Menu>
           </Box>
-          <Carrito cantCarrito={cartQuantity()} />
+          <Link to={'/cart'}>
+            <Carrito />
+          </Link>
         </Toolbar>
       </Container>
     </AppBar>

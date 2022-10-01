@@ -40,7 +40,7 @@ export default function ItemGrid({ item }) {
                             {name}
                         </Typography>
                         <Typography gutterBottom variant="h6" component="div" marginBottom="0px">
-                            ${price.toLocaleString('de-DE')}
+                            ${price}
                         </Typography>
                     </CardContent>
                     <CardContent sx={{ positition: "relative" }} >
