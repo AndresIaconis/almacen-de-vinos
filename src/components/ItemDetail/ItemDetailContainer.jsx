@@ -1,27 +1,31 @@
 import React, { useState, useEffect } from 'react'
 import ItemDetail from './ItemDetail'
-import { data } from '../mock/Api';
+import { db } from '../firebase/firebase';
 import { useParams } from 'react-router-dom';
+import {collection, doc, getDoc } from 'firebase/firestore'
 
 export default function ItemDetailContainer() {
   const [productDetail, setProductDetail] = useState({})
   const [loading, setLoading] = useState(true);
+  console.log(db)
+
 
   const {id} = useParams()
 
   useEffect(() => {
-    data
-      .then((res) => setProductDetail(res.find((item) => item.id === id)))
+    const productCollection = collection(db, "vinos");
+    const referenceDoc = doc(productCollection, id)
+
+    getDoc(referenceDoc)
+      .then((res) => setProductDetail({id:res.id, ...res.data()}))
       .catch(() => console.log("error"))
       .finally(() => setLoading(false))
   }, [id])
-  console.log(productDetail);
 
   return (
     <>
-      <div>
+      <div >
         <ItemDetail productDetail={productDetail} loading={loading} />
-
       </div>
     </>
   )

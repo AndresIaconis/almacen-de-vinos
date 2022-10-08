@@ -10,7 +10,7 @@ import { useNavigate } from 'react-router-dom';
 
 
 
-export default function ItemGrid({ item }) {
+export default function Item({ item }) {
     const { name, img, price,id, stock  } = item
     const { addItem } = useCart()
     const navigate = useNavigate()
@@ -34,6 +34,7 @@ export default function ItemGrid({ item }) {
                         width="90%"
                         image={img}
                         alt="img"
+                        sx={{ objectFit: "scale-down"}}
                     />
                     <CardContent padding="5px">
                         <Typography variant="body2" color="text.secondary" sx={{ fontSize: 12, fontWeight: "bold", padding: "5px" }} >
@@ -54,8 +55,7 @@ export default function ItemGrid({ item }) {
                         </Button>
             
                     </CardContent>
-                    <br />
-                    <br />
+
                 </>
 
             </Card>

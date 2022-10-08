@@ -1,28 +1,28 @@
 
 const ItemData =
     [{
-        id: 1,
+        id: "1",
         name: "Malbec",
         price: 3000,
         stock: 5,
         category: "malbec",
         img: "https://ardiaprod.vtexassets.com/arquivos/ids/187254/Vino-Tinto-Kadabra-Cabernet-Sauvignon-750-Ml-_1.jpg"
     }, {
-        id: 2,
+        id: "2",
         name: "Cabernet Sauvignon",
         price: 2500,
         category: "cavernet",
         stock: 5,
         img: "https://luigiboscaar.vteximg.com.br/arquivos/ids/157139-650-650/Generico_LB_CabernetSauvignon_1_.png"
     }, {
-        id: 3,
+        id: "3",
         name: "Pinot Noir",
         price: 2000,
         category: "pinot",
         stock: 5,
         img: "https://www.espaciovino.com.ar/media/default/0001/57/thumb_56014_default_big.jpeg"
     },{
-        id: 4,
+        id: "4",
         name: "Bodega Bianchi",
         price: 10000,
         stock: 5,

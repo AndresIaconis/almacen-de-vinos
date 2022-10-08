@@ -1,12 +1,12 @@
 import { createContext, useContext, useState } from "react";
 import React from "react";
+import { useLocalStorage } from "../components/useLocalStorage";
 
 export const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
 
-
-    const [cart, setCart] = useState([]);
+    const [cart, setCart] = useLocalStorage('cart', []);
     const addItem = (item) => {
         const existInCart = cart.find((prod) => prod.id === item.id)
         if (existInCart) {

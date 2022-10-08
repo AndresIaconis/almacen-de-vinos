@@ -42,7 +42,7 @@ const NavBar = () => {
   const cantCarrito = 20;
 
   return (
-    <AppBar position="static">
+    <AppBar position="static" sx={{backgroundColor: "rgb(132, 23, 76)"}}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Link to='/' style={{ color: "white" }}>
@@ -93,17 +93,17 @@ const NavBar = () => {
                 display: { xs: 'block', md: 'none' },
               }}
             >
-              <Link to='category/pinot'>
+              <Link to='category/Pinot'>
                 <MenuItem onClick={handleCloseNavMenu}>
                   <Typography textAlign="center">Pino</Typography>
                 </MenuItem>
               </Link>
-              <Link to='category/cavernet'>
+              <Link to='category/Cabernet'>
                 <MenuItem onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">Cavernet</Typography>
+                  <Typography textAlign="center">Cabernet</Typography>
                 </MenuItem>
               </Link>
-              <Link to='category/malbec'>
+              <Link to='category/Malbec'>
                 <MenuItem onClick={handleCloseNavMenu}>
                   <Typography textAlign="center">Malbec</Typography>
                 </MenuItem>
@@ -129,55 +129,25 @@ const NavBar = () => {
             ALMACÉN DE VINOS
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            <Link to='category/pinot'>
+            <Link to='category/Pinot'>
               <Button
                 sx={{ my: 2, color: 'white', display: 'block', fontSize: "12px" }}>
                 Pinot
               </Button>
             </Link>
-            <Link to='category/cavernet'>
+            <Link to='category/Cabernet'>
               <Button
                 sx={{ my: 2, color: 'white', display: 'block', fontSize: "12px" }}>
-                Cavernet
+                Cabernet
               </Button>
             </Link>
-            <Link to='category/malbec'>
+            <Link to='category/Malbec'>
               <Button
                 sx={{ my: 2, color: 'white', display: 'block', fontSize: "12px" }}>
                 Malbec
               </Button>
             </Link>
-          </Box>
-
-          <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-              </IconButton>
-            </Tooltip>
-            <Menu
-              sx={{ mt: '45px' }}
-              id="menu-appbar"
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
-            >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
-          </Box>
+          </Box>         
           <Link to={'/cart'}>
             <Carrito />
           </Link>
