@@ -16,7 +16,7 @@ export default function ItemCount({ stock, onAdd, count, setCount }) {
                 <Stack direction="row" spacing={1} sx={{ paddingTop: "2px" }}>
                     <Button
                         variant="outlined"
-                        color="secondary"
+                        color="primary"
                         onClick={() => setCount(count + 1)}
                         disabled={count === stock}
                         padding="0 0"
@@ -29,7 +29,7 @@ export default function ItemCount({ stock, onAdd, count, setCount }) {
                     </Box>
                     <Button
                         variant="outlined"
-                        color="secondary"
+                        color="primary"
                         onClick={() => setCount(count - 1)}
                         sx={{ border: "1px solid rgb(36 24 64)"}}
                         >
@@ -39,7 +39,7 @@ export default function ItemCount({ stock, onAdd, count, setCount }) {
             </CardActions>
                 <Button variant="contained"
                     sx={{ width: "100%", fontSize: "10px", paddingBottom: "2px", color: "white" }}
-                    color="secondary"
+                    color="primary"
                     disabled={count === 0}
                     onClick={onAdd}>
                     Agregar al carrito

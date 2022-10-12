@@ -17,7 +17,7 @@ export default function Footer() {
       <Grid container spacing={2} columns={4} sx={{ justifyContent: "center" }}>
         <Grid item xs={4} sm={1} sx={{ justifyContent: "center" }}>
           <Typography gutterBottom variant="h5" component="div" sx={{ display: { xs: 'none', sm: 'block' } }}>
-            Redes sociales
+            Copyright 2022
           </Typography>
 
           <div style={{ display: "flex", justifyContent: "center", gridColumnGap: "8%", padding: "2vh 0"}}>
@@ -33,23 +33,6 @@ export default function Footer() {
 
           </div>
           </Grid >
-    <Grid item sx={{ display: { xs: 'none', sm: 'none', md: 'block' } }} sm={1}>
-      <div>
-        <TextField
-          id="standard-password-input"
-          label="Contactanos"
-          variant="standard"
-          color="secondary"
-        />
-        <br />
-        <TextField
-          id="standard-password-input"
-          label="Suscribite al newsletter"
-          variant="standard"
-          color="secondary"
-        />
-      </div>
-    </Grid>
       </Grid >
 
     </div >

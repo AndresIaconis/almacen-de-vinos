@@ -20,7 +20,7 @@ export default function Carrito({cantCarrito}) {
 
     return (
         <IconButton aria-label="cart">
-            <StyledBadge badgeContent={cartQuantity()} color="secondary">
+            <StyledBadge badgeContent={cartQuantity()} color="primary">
                 <ShoppingCartIcon />
             </StyledBadge>
         </IconButton>

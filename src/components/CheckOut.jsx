@@ -8,7 +8,7 @@ import ContactPhoneIcon from '@mui/icons-material/ContactPhone';
 import ContactMailIcon from '@mui/icons-material/ContactMail';
 import CircularProgress from '@mui/material/CircularProgress';
 import { useForm } from 'react-hook-form';
-// import { addDoc, collection, getFirestore } from 'firebase/firestore';
+import { addDoc, collection, getFirestore } from 'firebase/firestore';
 
 export default function CheckOut() {
 
@@ -36,22 +36,17 @@ export default function CheckOut() {
             carrito: cart,
             total: Number(cartTotal()),
         };
-        // const db = getFirestore();
-        // const miCollection = collection(db, 'orders');
-        // addDoc(miCollection, order)
-        //     .then(({ id }) => {
-        //         setIdCompra(id)
-        //         clear()
-        //         setSend(true)
-        //     })
-        //     .catch((err) => {
-        //         setError(err)
-        //     })
-        //     .finally(() => setLoading(false))
-
-
+        const db = getFirestore();
+        const miCollection = collection(db, "order");
+        addDoc(miCollection, order)
+            .then (({id}) => {
+                setIdCompra(id)
+                clear()
+                setSend(true)
+            })
+            .catch((err)=> console.log(err))
+            .finally(() => setLoading(false))
     }
-
 
     return (
         <>
@@ -67,22 +62,17 @@ export default function CheckOut() {
             }}
             >
 
-                <Paper elevation={3}>
-
                     <Grid sx={{ padding: '5vh 10vh' }}>
                         {!send
                             ?
                             <>
                                 <Typography variant="body2" color="text.primary" sx={{ fontSize: 25, fontWeight: "bold", paddingBottom: "4vh" }} >
-                                    Checkout
+                                    Ingresa tus datos
                                 </Typography>
                                 <form onSubmit={handleSubmit(onSubmit)}>
-
-
                                     <Box sx={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'center' }}>
-                                        <AccountCircle sx={{ color: 'rgb(36 24 64)', mr: 1, my: 0.5 }} />
                                         <TextField
-                                            color="secondary"
+                                            color="primary"
                                             autoComplete='given-name'
                                             id="input-with-sx"
                                             label="Nombre"
@@ -95,9 +85,8 @@ export default function CheckOut() {
                                     </Box>
                                     <br />
                                     <Box sx={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'center' }}>
-                                        <AccountCircle sx={{ color: 'rgb(36 24 64)', mr: 1, my: 0.5 }} />
                                         <TextField
-                                            color="secondary"
+                                            color="primary"
                                             autoComplete='family-name'
                                             id="input-with-sx"
                                             label="Apellido"
@@ -110,9 +99,8 @@ export default function CheckOut() {
                                     </Box>
                                     <br />
                                     <Box sx={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'center' }}>
-                                        <ContactPhoneIcon sx={{ color: 'rgb(36 24 64)', mr: 1, my: 0.5 }} />
                                         <TextField
-                                            color="secondary"
+                                            color="primary"
                                             id="input-with-sx"
                                             label="Telefono"
                                             autoComplete='phone'
@@ -124,9 +112,8 @@ export default function CheckOut() {
                                     </Box>
                                     <br />
                                     <Box sx={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'center', paddingBottom: '10vh' }}>
-                                        <ContactMailIcon sx={{ color: 'rgb(36 24 64)', mr: 1, my: 0.5 }} />
                                         <TextField
-                                            color="secondary"
+                                            color="primary"
                                             id="input-with-sx"
                                             label="Email"
                                             autoComplete='email'
@@ -147,8 +134,7 @@ export default function CheckOut() {
                                             variant="contained"
                                             endIcon={<SendIcon />}
                                             type="submit"
-                                            color="secondary"
-                                            sx={{ color: "white" }}
+                                            color="primary"
                                         >
                                             Enviar
                                         </Button>
@@ -167,23 +153,22 @@ export default function CheckOut() {
                             :
                             <Grid sx={{ padding: '10vh 0' }}>
                                 <Typography variant="body2" color="text.primary" sx={{ fontSize: 25, fontWeight: "bold", padding: "5px" }} >
-                                    {!error ? "Pedido en proceso" : "Error al procesar los datos"}
+                                    {!error ? "Su compra ha sido registrada" : "Error al procesar los datos"}
                                 </Typography>
                                 <Typography variant="body2" color="text.secondary" sx={{ fontSize: 19, fontWeight: "bold", padding: "5px" }} >
-                                    {!error ? "Muchas gracias por su compra" : "Intente nuevamente en un instante"}
+                                    {!error ? "Muchas gracias" : "Intente nuevamente en un instante"}
                                 </Typography>
                                 <br />
                                 {!idCompra
                                     ? <CircularProgress color="secondary" />
                                     : <Typography variant="body2" color="text.primary" sx={{ fontSize: 15, fontWeight: "bold", padding: "5px" }} >
-                                        {!error ? "Su id de compra es " + idCompra : ""}
+                                        {!error ? "Su numero de pedido " + idCompra : ""}
                                     </Typography>
                                 }
 
                             </Grid>
                         }
                     </Grid>
-                </Paper>
             </Box>
 
         </>

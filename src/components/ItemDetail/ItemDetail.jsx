@@ -68,7 +68,8 @@ export default function ItemDetail({ productDetail, loading }) {
                     component="img"
                     style={{
                       padding: "8vh 10vh",
-                      height:"300px"
+                      height:"300px",
+                      objectFit: "scale-down"
                     }}
                     image={img}
                     alt="img"
@@ -89,7 +90,8 @@ export default function ItemDetail({ productDetail, loading }) {
                     <br />
                     <div
                       style={{
-                        width: "20vh",
+                        width: "50vh",
+                        display: 'flex'
                       }}>
                       {!buy
                         ? <ItemCount stock={stock} onAdd={onAdd} count={count} setCount={setCount} />
